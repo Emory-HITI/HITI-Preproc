@@ -1,4 +1,4 @@
-# HITI-Preprocessing [Early-Alpha]
+# HITI-Preproc [Early-Alpha]
 
 *Beatrice Brown-Mulry*
 
