@@ -4,7 +4,7 @@ hiti_preproc.dicoms: Functions for preprocessing general DICOMs and mammograms.
 
 import pydicom
 import numpy as np
-from typing import Literal, Union
+from typing import Literal, Union, overload
 import cv2
 
 
@@ -141,7 +141,21 @@ def get_mammogram_foreground_mask(
     return foreground_mask
 
 
-def preprocess_mammogram(
+# overload 1: If return_mask is explicitly False, the return type is a single array
+@overload
+def preprocess_mammo_dicom(
+    dicom: pydicom.FileDataset, return_mask: Literal[False]
+) -> np.ndarray: ...
+
+
+# overload 2: If return_mask is explicitly True, the return type is a tuple of arrays
+@overload
+def preprocess_mammo_dicom(
+    dicom: pydicom.FileDataset, return_mask: Literal[True]
+) -> tuple[np.ndarray, np.ndarray]: ...
+
+
+def preprocess_mammo_dicom(
     dicom: pydicom.FileDataset, return_mask: bool = False
 ) -> Union[np.ndarray, tuple[np.ndarray, np.ndarray]]:
     """Preprocesses a mammogram by applying VOI LUT, normalizing to uint16,
