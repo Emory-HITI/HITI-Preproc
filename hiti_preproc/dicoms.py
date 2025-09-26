@@ -1,3 +1,7 @@
+"""
+hiti_preproc.dicoms: Functions for preprocessing general DICOMs and mammograms.
+"""
+
 import pydicom
 import numpy as np
 from typing import Literal, Union

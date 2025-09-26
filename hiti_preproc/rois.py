@@ -1,3 +1,7 @@
+"""
+hiti_preproc.rois: Functions for padding patches generated from EMBED ROIs.
+"""
+
 import numpy as np
 
 
