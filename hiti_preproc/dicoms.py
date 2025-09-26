@@ -141,14 +141,19 @@ def get_mammogram_foreground_mask(
     return foreground_mask
 
 
-# overload 1: If return_mask is explicitly False, the return type is a single array
+# overload 1: default case called with no return_mask argument
+@overload
+def preprocess_mammo_dicom(dicom: pydicom.FileDataset) -> np.ndarray: ...
+
+
+# overload 2: If return_mask is explicitly False, the return type is a single array
 @overload
 def preprocess_mammo_dicom(
     dicom: pydicom.FileDataset, return_mask: Literal[False]
 ) -> np.ndarray: ...
 
 
-# overload 2: If return_mask is explicitly True, the return type is a tuple of arrays
+# overload 3: If return_mask is explicitly True, the return type is a tuple of arrays
 @overload
 def preprocess_mammo_dicom(
     dicom: pydicom.FileDataset, return_mask: Literal[True]
