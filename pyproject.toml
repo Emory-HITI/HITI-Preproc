@@ -8,8 +8,8 @@ dynamic = ["version"]
 
 dependencies = [
 	"numpy>=2.3"
-	"opencv_python>=4.10"
-	"pydicom>=3.0"
+	"opencv_python>=4.10.0.84"
+	"pydicom>=3.0.1"
 ]
 
 [tool.setuptools_scm]
