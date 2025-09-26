@@ -6,3 +6,6 @@ examples.ipynb
 
 .vscode
 .vscode/*
+
+# exclude pycache files
+*/__pycache__/
